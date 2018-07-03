@@ -90,7 +90,7 @@ class GameScreen(Screen):
         self.hit_time_start = 0
         self.hit_time_elapsed = 0
 
-        self.rabbit_spawn_rate = 150 - level*10
+        self.rabbit_spawn_rate = 300 - level*25
         
 
     def handle_keyboard_event(self, event):
@@ -195,7 +195,7 @@ class GameScreen(Screen):
         for rabbit in self.rabbit_list:
                 rabbit.target_plant(self.player.plant_list, self.player.trap_list, self.tile_list)
                 if (rabbit.is_eating):
-                    rabbit.start_eating_time = pygame.time.get_ticks() + 1000
+                    rabbit.start_eating_time = pygame.time.get_ticks() + 500
                     rabbit.is_eating = False
                 if ( pygame.time.get_ticks() > rabbit.start_eating_time and rabbit.start_eating_time != 0):  
                     rabbit.eat_plant(self.player.plant_list, self.tile_list)
@@ -266,7 +266,7 @@ class GameScreen(Screen):
         self.player.update_inventory()
         
         #Make more rabbits!
-        if (17 == random.randint(1,self.rabbit_spawn_rate)):
+        if (1 == random.randint(1,self.rabbit_spawn_rate)):
             num = random.randint(1,4)
             if (num == 1):
                 rabbit = Rabbit(-50, random.randint(0,constants.SCREEN_HEIGHT))

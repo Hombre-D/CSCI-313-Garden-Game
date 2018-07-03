@@ -21,7 +21,7 @@ class Pepper(Block):
 
         self.time = pygame.time.get_ticks()
 
-        self.eatable = False
+        self.eatable = True
         self.harvestable = False
 
         self.cost = 3
